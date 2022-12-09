@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Casa das ONGs</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="//web.webformscr.com/apps/fc3/build/loader.js" async sp-form-id="50af145cf99a5f2467b69f5e969215c156cd06b9faffc4551543cb62d18321df"></script>
+   
+    <!--FAVICON-->
+    <link href="images/logoicon.png" rel="icon">
+
+  </head>
+    <body>
+  <script type="text/javascript">(function(n,r,l,d){try{var h=r.head||r.getElementsByTagName("head")[0],s=r.createElement("script");s.defer=true;s.setAttribute("type","text/javascript");s.setAttribute("src",l);n.neuroleadId=d;h.appendChild(s);}catch(e){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js", 68295);</script>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////
+                               NAVBAR
+/////////////////////////////////////////////////////////////////////////////////////////////-->
+<nav class="navbar navbar-expand-lg navbar-dark menu shadow fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="">
+        <img src="images/logonav.png" alt="logo image">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#quemsomos">Quem somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cadastrese">Cadastre-se</a></li>
+          <li class="nav-item"><a class="nav-link" href="#encontreiniciativa">Encontre uma iniciativa</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a>
+          <li id = "labelLogin" class="nav-item" style="pointer-events:none"></li>
+          </li>
+        </ul>
+        <button type="button" id = "login" class="rounded-pill btn-rounded">
+          <div>Login</div>
+          <span>            
+            <i class="fas fa-sign-in-alt"></i>
+          </span>
+        </button>
+        <button type="button" style="display:none" id = "logout" class="rounded-pill btn-rounded">
+          <div>Sair</div>
+          <span>            
+            <i class="fas fa-sign-in-alt"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////
+                            HOME  
+/////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+<section id="home" class="intro-section">
+  <div class="container">
+    <div class="row align-items-center text-white">
+      <!-- HOME  -->
+      <div class="col-md-6 intros text-start">
+        <h1 class="display-2">
+          <span class="display-2--intro">Somos a Casa das ONGs</span>
+          <span class="display-2--description lh-base">
+            Plataforma social online que conecta quem se importa com quem faz.
+          </span>
+        </h1>
+      </div>
+      <!-- IMAGEM HOME -->
+      <div class="col-md-6 intros text-end">
+        <div class="video-box">
+          <img src="images/home/intro-section-illustration.png" alt="video illutration" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,160L48,176C96,192,192,224,288,208C384,192,480,128,576,133.3C672,139,768,213,864,202.7C960,192,1056,96,1152,74.7C1248,53,1344,107,1392,133.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+</section>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////
+                             PARCEIROS 
+////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+  <section id="campanies" class="campanies">
+    <div class="container">
+      <div class="row text-center">
+        <h4 class="fw-bold lead mb-3">Parceiros</h4>
+        <div class="heading-line mb-5"></div>
+      </div>
+    </div>
+    <!-- CONTEÚDO PARCEIROS  -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-lg-4">
+          <div class="campanies__logo-box shadow-sm">
+            <img src="images/parceiros/senai.png" alt="Campany 1 logo" title="Senai" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <div class="campanies__logo-box shadow-sm">
+            <img src="images/parceiros/energisa.png" alt="Campany 2 logo" title="Grupo Energisa" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <div class="campanies__logo-box shadow-sm">
+            <img src="images/parceiros/edulivre.png" alt="Campany 2 logo" title="Edu Livre" class="img-fluid">
+      </div>
+    </div>
+  </section>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////
+                         QUEM SOMOS 
+///////////////////////////////////////////////////////////////////////////////////////////////////-->
+<section id="quemsomos" class="services">
+  <div class="container">
+    <div class="row text-center">
+      <h1 class="display-3 fw-bold">Quem somos</h1>
+      <div class="heading-line mb-1"></div>
+    </div>
+  <!-- QUEM SOMOS CONTEÚDO  -->
+    <div class="row pt-2 pb-2 mt-0 mb-3">
+      <div class="col-md-6 border-right">
+        <div class="bg-white p-3">
+          <h2 class="fw-bold text-capitalize text-center">
+            Mobilizando pessoas e gerando transformações positivas na sociedade.
+          </h2>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="bg-white p-4 text-start">
+          <p class="fw-light">
+            A Casa das ONGs tem o objetivo de mobilizar pessoas e gerar transformações positivas na sociedade, com um espaço que conecta iniciativas de impacto com doadores, divulgando campanhas de arrecadação de doações de Organizações da Sociedade Civil de todo o país.
+Não somos uma plataforma de doação, o nosso papel é exclusivo de mapeamento e divulgação das iniciativas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIFERENCIAIS CONTEÚDO  -->
+  <div class="container">
+    <!-- DIFERENCIAL 1 -->
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4">
+        <div class="services__content">
+          <div class="icon d-block fas fa-handshake"></div>
+          <h3 class="display-3--title mt-1">Encontre parceiros</h3>
+          <p class="lh-lg">
+            Possibilidade de conexão com mais de 100 empresas para realizar parcerias.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4 text-end">
+        <div class="services__pic">
+          <img src="images/diferenciais/service-1.png" alt="encontre parceiros" class="img-fluid">
+        </div>
+      </div>
+    </div>
+    <!-- DIFERENCIAL 2  -->
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4 text-start">
+        <div class="services__pic">
+          <img src="images/diferenciais/service-2.png" alt="divulgação" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4">
+        <div class="services__content">
+          <div class="icon d-block fas fa-bullhorn"></div>
+          <h3 class="display-3--title mt-1">Divulgue sua causa social</h3>
+          <p class="lh-lg">
+            Encontre um espaço para divulgação de sua causa social em uma plataforma totalmente grátis.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- DIFERENCIAL 3  -->
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4">
+        <div class="services__content">
+          <div class="icon d-block fas fa-solid fa-users"></div>
+          <h3 class="display-3--title mt-1">Conexões reais com pessoas reais</h3>
+          <p class="lh-lg">
+            Se conecte com uma rede de centenas de organizações, movimentos e coletivos sociais de todo o país.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 services mt-4 text-end">
+        <div class="services__pic">
+          <img src="images/diferenciais/service-3.png" alt="conexões reais" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////
+                               DEPOIMENTOS  
+/////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<section id="testimonials" class="testimonials">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,96L48,128C96,160,192,224,288,213.3C384,203,480,117,576,117.3C672,117,768,203,864,202.7C960,203,1056,117,1152,117.3C1248,117,1344,203,1392,245.3L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+  <div class="container">
+    <div class="row text-center text-white">
+      <h1 class="display-3 fw-bold">Depoimentos</h1>
+      <hr style="width: 100px; height: 3px; " class="mx-auto">
+      <p class="lead pt-1">O que estão falando sobre nós:</p>
+    </div>
+
+    <!-- CONTEÚDO DEPOIMENTOS  -->
+    <div class="row align-items-center">
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!-- ITEM 1 -->
+          <div class="carousel-item active">
+            <!-- CARTÃO DEPOIMENTO 1 -->
+            <div class="testimonials__card">
+              <p class="lh-lg">
+                <i class="fas fa-quote-left"></i>
+                Plataforma espetacular! Através da Casa das ONGs realizamos várias parcerias e ações. Indico para todos os empreendedores sociais.
+                <i class="fas fa-quote-right"></i>
+                <div class="ratings p-1">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </p>
+            </div>
+            <!-- foto feedback 1  -->
+            <div class="testimonials__picture">
+              <img src="images/depoimentos/cliente1.jpg" alt="client-1 picture" class="rounded-circle img-fluid">
+            </div>
+            <!-- nome feedback 1  -->
+            <div class="testimonials__name">
+              <h3>Patrick</h3>
+              <p class="fw-light"></p>
+            </div>
+          </div>     
+          <!-- ITEM 2 -->
+          <div class="carousel-item">
+            <!-- CARTÃO DEPOIMENTO 2  -->
+            <div class="testimonials__card">
+              <p class="lh-lg">
+                <i class="fas fa-quote-left"></i>
+                Simplicidade, realidade, conhecimento, igualdade! Muito prática para doadores, recomendo.
+                <i class="fas fa-quote-right"></i>
+                <div class="ratings p-1">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </p>
+            </div>
+            <!-- foto feedback 2 -->
+            <div class="testimonials__picture">
+              <img src="images/depoimentos/cliente2.png" alt="client-2 picture" class="rounded-circle img-fluid">
+            </div>
+            <!-- nome feedback 2  -->
+            <div class="testimonials__name">
+              <h3>Joana</h3>
+              <p class="fw-light"></p>
+            </div>
+          </div>     
+          <!-- ITEM 3 -->
+          <div class="carousel-item">
+            <!-- CARTÃO DEPOIMENTO 3 -->
+            <div class="testimonials__card">
+              <p class="lh-lg">
+                <i class="fas fa-quote-left"></i>
+                Há muito tempo precisavámos de uma rede de conexões importantes. Encontrei uma empresa para parceria e ajudou muito a minha ONG!
+                <i class="fas fa-quote-right"></i>
+                <div class="ratings p-1">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </p>
+            </div>
+            <!-- foto feedback 3  -->
+            <div class="testimonials__picture">
+              <img src="images/depoimentos/cliente3.jpg" alt="client-3 picture" class="rounded-circle img-fluid">
+            </div>
+            <!-- nome feedback 3 -->
+            <div class="testimonials__name">
+              <h3>Mário</h3>
+              <p class="fw-light"></p>
+            </div>
+          </div>     
+          <!-- ITEM 4 -->
+          <div class="carousel-item">
+            <!-- CARTÃO DEPOIMENTO 4  -->
+            <div class="testimonials__card">
+              <p class="lh-lg">
+                <i class="fas fa-quote-left"></i>
+                Sempre buscando a melhoria da cultura de doação em nosso país. Ótima rede! :)
+                <i class="fas fa-quote-right"></i>
+                <div class="ratings p-1">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </p>
+            </div>
+            <!-- foto feedback 4 -->
+            <div class="testimonials__picture">
+              <img src="images/depoimentos/cliente4.png" alt="client-4 picture" class="rounded-circle img-fluid">
+            </div>
+            <!-- nome feedback 4  -->
+            <div class="testimonials__name">
+              <h3>Maria</h3>
+              <p class="fw-light"></p>
+            </div>
+          </div>     
+        </div>
+        <div class="text-center">
+          <button class="btn btn-outline-light fas fa-long-arrow-alt-left" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        </button>
+        <button class="btn btn-outline-light fas fa-long-arrow-alt-right" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,96L48,128C96,160,192,224,288,213.3C384,203,480,117,576,117.3C672,117,768,203,864,202.7C960,203,1056,117,1152,117.3C1248,117,1344,203,1392,245.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+</section>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////
+                       FAQ 
+//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<section id="faq" class="faq">
+  <div class="container">
+    <div class="row text-center">
+      <h1 class="display-3 fw-bold text-uppercase">FAQ</h1>
+      <div class="heading-line"></div>
+      <p class="lead">Encontre por aqui as respostas para as principais dúvidas sobre a Casa das ONGs. Se ainda tiver alguma pergunta que não encontrou por aqui, escreva para contato@casadasongs.com que nosso time terá o maior prazer em ajudá-lo.</p>
+    </div>
+    <!-- PERGUNTAS CONTEÚDO  -->
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="accordion" id="accordionExample">
+          <!-- PERGUNTA 1 -->
+          <div class="accordion-item shadow mb-3">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                O que é a Casa das ONGs?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                A <strong>Casa das ONGs</strong> é um espaço que conecta iniciativas de impacto com doadores, divulgando campanhas de arrecadação de doações de Organizações da Sociedade Civil de todo o país. A <strong>Casa das ONGs</strong> não é uma plataforma de doação, sendo assim nenhuma transação financeira é realizada através dela. O seu papel é exclusivo de mapeamento e divulgação das iniciativas.
+              </div>
+            </div>
+          </div>
+             <!-- PERGUNTA 2 -->
+          <div class="accordion-item shadow mb-3">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Como faço para doar para uma iniciativa?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                A <strong>Casa das ONGs</strong> é um espaço que divulga iniciativas curadas em busca de doação. As doações não acontecem dentro do sistema do portal. 
+                Dentro da página de cada organização, ao clicar no link de doações você será direcionado a página de arrecadação daquela inciativa. O processo de doação acontece em sites específicos, independentes da <strong>Casa das ONGs</strong>.
+              </div>
+            </div>
+          </div>
+             <!-- PERGUNTA 3 -->
+          <div class="accordion-item shadow mb-3">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Como faço para indicar uma iniciativa para ser publicada no site?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Você pode indicar iniciativas para serem publicadas no site através do formulário “Cadastre-se” disponível no menu de rodapé do site. Estas indicações entrarão na nossa lista de contatos que poderá, a partir des nossos critérios, entrar em contato com a Organização da Sociedade Civil indicada para checar as informações fornecidas e possíveis dúvidas. Caso a iniciativa cumpra os critérios de publicação da plataforma, ela poderá entrar na lista de publicação do site.
+              </div>
+            </div>
+          </div>
+             <!-- PERGUNTA 4 -->
+          <div class="accordion-item shadow mb-3">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Posso colaborar com uma iniciativa sem ser financeiramente?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+               A <strong>Casa das ONGs</strong> divulga apenas instituições que possuem páginas de arrecadação financeira. Para outras formas de doação, você poderá entrar em contato diretamente com a instituição, através dos meios de comunicação disponibilizados na página de divulgação da iniciativa.
+            </div>
+            </div>
+          </div>     
+  <!-- PERGUNTA 5 -->
+  <div class="accordion-item shadow mb-3">
+    <h2 class="accordion-header" id="headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        Quem é responsável pela gestão dos recursos doados?
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        A responsabilidade da idealização, implementação e execução dos projetos a partir dos recursos doados é da instituição responsável pela arrecadação financeira. 
+        A <strong>Casa das ONGs</strong> oferece a estrutura de portal para comunicação e divulgação das iniciativas. Não nos responsabilizamos pelo modo de utilização dos recursos pelas instituições.
+        Caso você tenha alguma dúvida sobre a alocação dos recursos doados, poderá entrar em contato diretamente com a instituição responsável através dos contatos disponibilizados na página.
+    </div>
+    </div>
+  </div>
+  <!-- PERGUNTA 6 -->
+  <div class="accordion-item shadow mb-3">
+    <h2 class="accordion-header" id="headingSix">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        Como falar com as organizações responsáveis pelas iniciativas divulgadas?
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Para falar com as instituições, basta entrar em contato através dos meios de comunicação disponibilizados na página de divulgação da iniciativa dentro da <strong>Casa das ONGs</strong>.
+    </div>
+    </div>
+  </div>
+      <!-- PERGUNTA 7 -->
+      <div class="accordion-item shadow mb-3">
+        <h2 class="accordion-header" id="headingSeven">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+            Quem são e qual o papel dos parceiros da Casa das ONGs?
+          </button>
+        </h2>
+        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Os parceiros da <strong>Casa das ONGs</strong> são iniciativas robustas, com anos de experiência no mercado, que trabalham de forma muito próxima aos projetos e endossam àqueles que conhecem de perto e estão dentro do perfil apoiado pelo portal: organizações sem fins lucrativos de direito privado e que tem um trabalho exemplar dentro dos seus temas de atuação.
+        </div>
+        </div>
+      </div>
+           <!-- PERGUNTA 8 -->
+           <div class="accordion-item shadow mb-3">
+            <h2 class="accordion-header" id="headingEight">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                Quais iniciativas podem ser publicadas na Casa das ONGs?
+              </button>
+            </h2>
+            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Podem ser publicadas na <strong>Casa das ONGs</strong>, iniciativas de Pessoas Júridicas sem fins lucrativos de direito privado que tenham páginas de captação online próprias ou em plataformas de crowdfunding e que atuem em pelo menos uma das seguintes temáticas: Educação, Equidade Racial, LGBTQIA+, Mulheres, PCDs, Meio Ambiente, Combate à fome, Saúde e Cultura.
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////
+                              INICIATIVAS 
+//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+<section id="encontreiniciativa" class="portfolio">
+  <div class="container">
+    <div class="row text-center mt-5">
+      <h1 class="display-3 fw-bold text-capitalize">Iniciativas</h1>
+      <div class="heading-line"></div>
+      <p class="lead">
+        Encontre projetos por todo o país.
+      </p>
+    </div>
+    <!-- BOTÕES INICIATIVAS  -->
+    <div class="row mt-5 mb-4 g-3 text-center">
+      <div class="col-md-12">
+        <button class="btn btn-outline-primary" type="button">LGBTQIA+</button>
+        <button class="btn btn-outline-primary" type="button">Causa mulheres</button>
+        <button class="btn btn-outline-primary" type="button"><a href="iracambi.html" target="_blank">Meio ambiente</a></button>
+        <button class="btn btn-outline-primary" type="button">Idosos</button>
+        <button class="btn btn-outline-primary" type="button">Proteção animal</button>
+        <button class="btn btn-outline-primary" type="button">Saúde</button>
+        <button class="btn btn-outline-primary" type="button">Equidade racial</button>
+        <button class="btn btn-outline-primary" type="button">Cultura e arte</button>
+        <button class="btn btn-outline-primary" type="button">Educação</button>
+        <button class="btn btn-outline-primary" type="button">Crianças</button>
+        <button class="btn btn-outline-primary" type="button">Combate à fome</button>
+        <button class="btn btn-outline-primary" type="button">Pessoas com deficiência (PCDs)</button>
+        <button class="btn btn-outline-primary" type="button">Sustentabilidade</button>
+      </div>
+    </div>
+
+    <!-- INICIATIVAS CONTEÚDO  -->
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="portfolio-box shadow">
+          <img src="images/iniciativas/lgbt.png" alt="portfolio 1 image" title="portfolio 1 picture" class="img-fluid">
+          <div class="portfolio-info">
+            <div class="caption">
+              <h4>LGBTQIA+</h4>
+              <p>Movimento político e social que defende a diversidade e busca mais representatividade e direitos para essa população.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="portfolio-box shadow">
+          <img src="images/iniciativas/mulheres.png" alt="portfolio 2 image" title="portfolio 2 picture" class="img-fluid">
+          <div class="portfolio-info">
+            <div class="caption">
+              <h4>Causa mulheres</h4>
+              <p>Apoio pelos direitos das mulheres.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="portfolio-box shadow">
+          <img src="images/iniciativas/meioambiente.png" alt="portfolio 3 image" title="portfolio 3 picture" class="img-fluid">
+          <div class="portfolio-info">
+            <div class="caption">
+              <h4>Meio ambiente</h4>
+              <p>Proteção a natureza de ações que provocam danos ao meio ambiente.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="portfolio-box shadow">
+          <img src="images/iniciativas/idosos.png" alt="portfolio 4 image" title="portfolio 4 picture" class="img-fluid">
+          <div class="portfolio-info">
+            <div class="caption">
+              <h4>Idosos</h4>
+              <p>Assegurar os direitos dos idosos e qualidade de vida.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="portfolio-box shadow">
+          <img src="images/iniciativas/animal.png" alt="portfolio 5 image" title="portfolio 5 picture" class="img-fluid">
+          <div class="portfolio-info">
+            <div class="caption">
+              <h4>Proteção animal</h4>
+              <p>Garantindo o dever de preservar e resguardar todos os animais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="portfolio-box shadow">
+          <img src="images/iniciativas/saude.png" alt="portfolio 6 image" title="portfolio 6 picture" class="img-fluid">
+          <div class="portfolio-info">
+            <div class="caption">
+              <h4>Saúde</h4>
+              <p>Movimento em prol da saúde e bem estar para todos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////
+              CADASTRE-SE 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+<section id="cadastrese" class="get-started">
+  <div class="container">
+    <div class="row text-center">
+      <h1 class="display-3 fw-bold text-capitalize">Cadastre-se</h1>
+      <div class="heading-line"></div>
+      <p class="lh-lg">
+        Faça parte da rede Casa das ONGs.
+      </p>
+    </div>
+
+    <!-- FORMULÁRIO  -->
+    <div class="row text-white">
+      <div class="col-12 col-lg-6 gradient shadow p-3">
+        <div class="cta-info w-100">
+          <h4 class="display-4 fw-bold">Bem vindo(a). </h4>
+          <p class="lh-lg">
+            Se a sua organização, coletivo ou movimento social está em busca de doações para colaborar com a sua causa, venha fazer parte da nossa rede!
+          </p>
+          <br>
+          <br>
+          <h3 class="display-3--brief">E mais:</h3>
+          <ul class="cta-info__list">
+            <li>Se conecte com uma rede de centenas de organizações, movimentos e coletivos sociais de todo o país.</li>
+            <li>Espaço para divulgação de sua causa social.</li>
+            <li>Possibilidade de conexão com mais de 100 empresas para realizar parcerias.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 bg-white shadow p-3">
+        <div class="form w-100 pb-2">
+          <h4 class="display-3--title mb-5"></h4>
+          <form action="#" method="post" class="row">
+            <div class="col-lg-6 col-md mb-3">
+              <input type="text" placeholder="Nome" id="inputFirstName" class="shadow form-control form-control-lg">
+            </div>
+            <div class="col-lg-6 col-md mb-3">
+              <input type="text" placeholder="Sobrenome" id="inputLastName" class="shadow form-control form-control-lg">
+            </div>
+            <div class="col-lg-12 mb-3">
+              <input type="email" placeholder="Email" id="inputEmail" class="shadow form-control form-control-lg">
+            </div>
+            <div class="col-lg-12 mb-3">
+              <textarea name="message" placeholder="Mensagem" id="message" rows="8" class="shadow form-control form-control-lg">
+              </textarea>
+            </div>
+            <div class="text-center d-grid mt-1">
+              <button type="button" onclick="sendEmail()" class="btn btn-primary rounded-pill pt-3 pb-3">
+                Enviar
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////
+                           FOOTER 
+///////////////////////////////////////////////////////////////////////////////////////////////-->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <!-- ÍCONE TELEFONE  -->
+      <div class="col-md-4 col-lg-4 contact-box pt-1 d-md-block d-lg-flex d-flex">
+        <div class="contact-box__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone-call" viewBox="0 0 24 24" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+            <path d="M15 7a2 2 0 0 1 2 2" />
+            <path d="M15 3a6 6 0 0 1 6 6" />
+          </svg>
+        </div>
+        <div class="contact-box__info">
+          <a href="#" class="contact-box__info--title">(32) 3421-20**</a>
+          <p class="contact-box__info--subtitle"> Seg-Sex 9h-18h </p>
+        </div>
+      </div>  
+      <!-- EMAIL  -->
+      <div class="col-md-4 col-lg-4 contact-box pt-1 d-md-block d-lg-flex d-flex">
+        <div class="contact-box__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail-opened" viewBox="0 0 24 24" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <polyline points="3 9 12 15 21 9 12 3 3 9" />
+            <path d="M21 9v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
+            <line x1="3" y1="19" x2="9" y2="13" />
+            <line x1="15" y1="13" x2="21" y2="19" />
+          </svg>
+        </div>
+        <div class="contact-box__info">
+          <a href="mailto:contato@casadasongs.com.br" class="contact-box__info--title">contato@casadasongs.com.br</a>
+          <p class="contact-box__info--subtitle">Suporte</p>
+        </div>
+      </div>
+      <!-- LOCALIDADE  -->
+      <div class="col-md-4 col-lg-4 contact-box pt-1 d-md-block d-lg-flex d-flex">
+        <div class="contact-box__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-2" viewBox="0 0 24 24" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <line x1="18" y1="6" x2="18" y2="6.01" />
+            <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5" />
+            <polyline points="10.5 4.75 9 4 3 7 3 20 9 17 15 20 21 17 21 15" />
+            <line x1="9" y1="4" x2="9" y2="17" />
+            <line x1="15" y1="15" x2="15" y2="20" />
+          </svg>
+        </div>
+        <div class="contact-box__info">
+          <a href="https://www.google.com.br/maps" target="_blank" class="contact-box__info--title">Rua Dr. Sobral, 41</a>
+          <p class="contact-box__info--subtitle">Centro, Cataguases - MG</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÍCONES REDES SOCIAIS  -->
+  <div class="footer-sm" style="background-color: #212121;">
+    <div class="container">
+      <div class="row py-4 text-center text-white">
+        <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+        </div>
+        <div class="col-lg-7 col-md-6">
+          <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO FINAL -->
+  <div class="container mt-5">
+    <div class="row text-white justify-content-center mt-3 pb-3">
+      <div class="col-12 col-sm-6 col-lg-6 mx-auto">
+        <h5 class="text-capitalize fw-bold">Casa das ONGs</h5>
+        <hr class="bg-white d-inline-block mb-4" style="width: 60px; height: 2px;">
+        <p class="lh-lg">
+          Plataforma social online que conecta quem se importa com quem faz.
+        </p>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-2 mb-4 mx-auto">
+        <h5 class="text-capitalize fw-bold">Casa das ONGs</h5>
+        <hr class="bg-white d-inline-block mb-4" style="width: 60px; height: 2px;">
+        <ul class="list-inline campany-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#quemsomos">Quem somos</a></li>
+          <li><a href="#cadastrese">Cadastre-se</a></li>
+          <li><a href="#encontreiniciativa">Encontre uma Iniciativa</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-2 mb-4 mx-auto">
+        <h5 class="text-capitalize fw-bold">Causas</h5>
+        <hr class="bg-white d-inline-block mb-4" style="width: 60px; height: 2px;">
+        <ul class="list-inline campany-list">
+          <li><a href="#encontreiniciativa">LGBTQIA+</a></li>
+          <li><a href="#encontreiniciativa">Causa mulheres</a></li>
+          <li><a href="#encontreiniciativa">Meio ambiente</a></li>
+          <li><a href="#encontreiniciativa">Idosos</a></li>
+          <li><a href="#encontreiniciativa">Proteção animal</a></li>
+          <li><a href="#encontreiniciativa">Saúde</a></li>
+          <li><a href="#encontreiniciativa">Equidade racial</a></li>  
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-2 mb-4 mx-auto">
+        <h5 class="text-capitalize fw-bold">+</h5>
+        <hr class="bg-white d-inline-block mb-4" style="width: 60px; height: 2px;">
+        <ul class="list-inline campany-list">
+          <li><a href="#encontreiniciativa">Cultura e arte</a></li>
+          <li><a href="#encontreiniciativa">Educação</a></li>
+          <li><a href="#encontreiniciativa">Crianças</a></li>
+          <li><a href="#encontreiniciativa">Combate à fome</a></li>
+          <li><a href="#encontreiniciativa">Pessoas com deficiência (PCDs)</a></li>
+          <li><a href="#encontreiniciativa">Sustentabilidade</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- COPYRIGHT  -->
+  <div class="footer-bottom pt-5 pb-5">
+    <div class="container">
+      <div class="row text-center text-white">
+        <div class="col-12">
+          <div class="footer-bottom__copyright">
+            &COPY; Copyright 2022 <a href="#">Casa das ONGs</a><br> Created by <a href="https://github.com/jsscmps" target="_blank">Jéssica Campos</a><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTÃO DE IR AO TOPO  -->
+<a href="#" class="shadow btn-primary rounded-circle back-to-top">
+  <i class="fas fa-chevron-up"></i>
+</a>
+   
+    <script src="assets/vendors/js/glightbox.min.js"></script>
+
+<!-- ELASTIC EMAIL PARA O FORMULÁRIO  -->
+
+<script>
+  const form = document.querySelector(".row");
+  form.addEventListener("submit", e => {
+  e.preventDefault();
+  let Nome = document.querySelector(".Nome").valeu;
+  let Sobrenome = document.querySelector(".Sobrenome").value;
+  let Email = document.querySelector(".Email").value;
+  let Mensagem = document.querySelector(".Mensagem").value;
+  
+document.querySelector(".row").reset();
+sendEmail();
+  })
+  function sendEmail() {
+      console.log("comecou a mandar email");
+      Email.send ({ 
+      Host: "smtp.elasticemail.com",
+      Username: "jsscmps22@gmail.com",
+      Password: "0A2C70B3DA4D206DE7DDC2D67AD636BA2BAA",
+      To: 'jsscmps22@gmail.com',
+      From: "jsscmps22@gmail.com",
+      Subject: "Formulário de cadastro",
+      Body: "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></htmls"
+      }). then (
+    message => alert (message)
+    );
+  }
+  </script>
+
+<!-- FIREBASE LOGIN E LOGOUT  -->
+     <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+     <script type="module">
+      const signInButton = document.querySelector('#login');
+      const signOutButton = document.querySelector('#logout');
+      const userName = document.querySelector('#labelLogin');
+      
+      const firebaseConfig = {
+        apiKey: "AIzaSyDOlSO0bfhIZzb4k70yXb-0jq-eoACxt-I",
+        authDomain: "rio-pomba-valley.firebaseapp.com",
+        projectId: "rio-pomba-valley",
+        storageBucket: "rio-pomba-valley.appspot.com",
+        messagingSenderId: "61453011563",
+        appId: "1:61453011563:web:1b91890ada7da835c7bf2e",
+        measurementId: "G-H82ZNPPK15"
+      };
+    
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+
+      auth.onAuthStateChanged(user => {
+        var currentPath = window.location.pathname;
+        if (user) {
+          signInButton.style.display="none";
+          signOutButton.style.display="block";
+            if(userName!== null){
+              userName.innerHTML='Olá, '+ user.displayName + '!';
+            }         
+          } else {
+            userName.innerHTML='';
+            signOutButton.style.display="none";
+            signInButton.style.display="block";         
+          }
+        })
+        const signout = () => {
+          auth.signOut();
+        }
+
+      var provider = new firebase.auth.GoogleAuthProvider();
+
+      const signup = () => {
+        firebase.auth().signInWithPopup(provider);
+        firebase.auth()
+          .getRedirectResult()
+          .then((result) => {
+            if (result.credential) {
+              /** @type {firebase.auth.OAuthCredential} */
+              var credential = result.credential;
+
+              // This gives you a Google Access Token. You can use it to access the Google API.
+              var token = credential.accessToken;
+              // ...
+            }
+            // The signed-in user info.
+            var user = result.user;
+          }).catch((error) => {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+          });
+      };
+    
+      //  Add event listeners to buttons
+      signInButton.addEventListener('click', signup);
+      signOutButton.addEventListener('click', signout);
+
+    </script>
+
+    <!--PULSES-->
+
+  <!-- Subscription Form -->
+ <style >.sp-force-hide { display: none;}.sp-form[sp-id="218347"] { display: block; background: rgba(237, 221, 240, 1); padding: 15px; width: 450px; max-width: 100%; border-radius: 8px; border-color: #dddddd; border-style: solid; border-width: 1px; font-family: Arial, "Helvetica Neue", sans-serif; background-repeat: no-repeat; background-position: center; background-size: auto;}.sp-form[sp-id="218347"] input[type="checkbox"] { display: inline-block; opacity: 1; visibility: visible;}.sp-form[sp-id="218347"] .sp-form-fields-wrapper { margin: 0 auto; width: 420px;}.sp-form[sp-id="218347"] .sp-form-control { background: #ffffff; border-color: #cccccc; border-style: solid; border-width: 1px; font-size: 15px; padding-left: 8.75px; padding-right: 8.75px; border-radius: 4px; height: 35px; width: 100%;}.sp-form[sp-id="218347"] .sp-field label { color: #444444; font-size: 13px; font-style: normal; font-weight: bold;}.sp-form[sp-id="218347"] .sp-button-messengers { border-radius: 4px;}.sp-form[sp-id="218347"] .sp-button { border-radius: 4px; background-color: #bb31de; color: #ffffff; width: auto; font-weight: bold; font-style: normal; font-family: Arial, sans-serif; box-shadow: none; border-width: 1px; border-color: #b71dde; border-style: solid; background: linear-gradient(to top, #961db5 , #cc66e6);}.sp-form[sp-id="218347"] .sp-button-container { text-align: center;}.sp-popup-outer { background: rgba(0, 0, 0, 0.5);}</style><div class="sp-form-outer sp-popup-outer sp-force-hide" style="background: rgba(0, 0, 0, 0.5);"><div id="sp-form-218347" sp-id="218347" sp-hash="50af145cf99a5f2467b69f5e969215c156cd06b9faffc4551543cb62d18321df" sp-lang="pt-br" class="sp-form sp-form-regular sp-form-popup" sp-show-options="%7B%22satellite%22%3Afalse%2C%22maDomain%22%3A%22login.sendpulse.com%22%2C%22formsDomain%22%3A%22forms.sendpulse.com%22%2C%22condition%22%3A%22onEnter%22%2C%22scrollTo%22%3A25%2C%22delay%22%3A2%2C%22repeat%22%3A0%2C%22background%22%3A%22rgba(0%2C%200%2C%200%2C%200.5)%22%2C%22position%22%3A%22bottom-right%22%2C%22animation%22%3A%22%22%2C%22hideOnMobile%22%3Afalse%2C%22submitRedirectUrl%22%3A%22%22%2C%22urlFilter%22%3Afalse%2C%22urlFilterConditions%22%3A%5B%7B%22force%22%3A%22hide%22%2C%22clause%22%3A%22contains%22%2C%22token%22%3A%22%22%7D%5D%2C%22analytics%22%3A%7B%22ga%22%3A%7B%22eventLabel%22%3A%22Formul_rio_de_inscri_o_Casa_das_ONGs%22%2C%22send%22%3Afalse%7D%2C%22ym%22%3A%7B%22counterId%22%3Anull%2C%22eventLabel%22%3Anull%2C%22targetId%22%3Anull%2C%22send%22%3Afalse%7D%7D%2C%22utmEnable%22%3Afalse%7D"><div class="sp-form-fields-wrapper"><button class="sp-btn-close ">&nbsp;</button><div class="sp-message"><div></div></div><form novalidate="" class="sp-element-container "><div class="sp-field sp-field-full-width" sp-id="sp-c92a6886-3feb-4020-9cce-95d4a8773c8a"><div style="font-family: inherit; line-height: 1.2;"><p>Se inscreva e fique por dentro de todas as novidades de iniciativas sociais em todo o país.</p></div></div><div class="sp-field " sp-id="sp-abeb11f0-3fcd-4fc8-861c-29e95e52e821"><label class="sp-control-label"><span >Email</span><strong >*</strong></label><input type="email" sp-type="email" name="sform[email]" class="sp-form-control " placeholder="nomedeusuário@gmail.com" sp-tips="%7B%22required%22%3A%22Campo%20obrigat%C3%B3rio%22%2C%22wrong%22%3A%22E-mail%20errado%22%7D" autocomplete="on" required="required"></div><div class="sp-field sp-button-container " sp-id="sp-9dfda2c5-397e-4bb1-9cbc-40fbffde26f8"><button id="sp-9dfda2c5-397e-4bb1-9cbc-40fbffde26f8" class="sp-button">Inscrever-se </button></div></form><div class="sp-link-wrapper sp-brandname__left"><a class="sp-link " target="_blank" href="https://sendpulse.com/forms-powered-by-sendpulse?from=8181475"><span class="sp-link-img">&nbsp;</span><span translate="FORM.PROVIDED_BY">Desenvolvido por SendPulse</span></a></div></div></div></div><script type="text/javascript" async="async" src="//web.webformscr.com/apps/fc3/build/default-handler.js?1669793868129"></script> 
+ <!-- /Subscription Form -->
+
+  </body>
+</html>
